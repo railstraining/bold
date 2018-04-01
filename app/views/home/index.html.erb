@@ -1,0 +1,18 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<% content_for :special_script do %>
+  <h1>Hello! Satish from Home index page') </h1>
+<% end %>
+2*10
+<br>
+<%= 2*10 %>
+<br>
+<%= @name %>
+<br>
+<%= @place %>
+<br>
+
+<h3><%= link_to "Users List", users_list_products_path %></h3><br>
+<h3><%= link_to "Sites List", sites_list_product_path(Product.first) %></h3><br>
+
+<%= render 'home_index_partial', name:@name,place:@place %>

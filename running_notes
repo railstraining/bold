@@ -1,0 +1,92 @@
+# in config/routes.rb   resorces :products   -->  generates 7 restfull crud actions with the help 
+#    of 5 http verbs
+
+#   here 7 crud actions includes index show new update edit create destroy 
+#   and 5 http verbs includes get post put patch delete
+  	
+# get           /products            -->  products controller index action         products_path
+# get           /products/:id        -->  products            show                 product_path(product)
+# get           /products/new        -->  products            new                  new_product_path
+# put/patch     /products/:id        -->  products            update     no ui     
+# get           /products/:id/edit   -->  products            edit                  edit_product_path
+# post          /products            -->  products            create      no ui
+# delete        /products/:id        -->  products            destroy     no ui      
+
+
+
+crud actions   sites  name:string party_id:integer user_name:string country:string state:string
+
+
+
+1.  rails g migration create_sites name:string party_id:integer user_name:string country:string state:string
+
+2. rake db:migrate
+
+3.app/models/site.rb
+4.app/controllers/sites_controller.rb
+5. app/views/sites  --> index.html.erb show.html.erb edit.html.erb new.html.erb
+6.config/routes.rb  --> resources :sites
+
+
+#private methods
+#public methods
+#protected methods
+
+
+
+render and redirect
+
+by default rails execution will go to template whose name similar to controller action
+
+  ex:  index action  to    index.html.erb
+       new action    to    new.html.erb
+       show action   to    show.html.erb
+
+
+ To override this default behavior we will use render and redirect keywords
+ 
+ render ::  it will render templete directly
+ redirect_to ::  it will execute corresponding controller action and then render corresponding template
+
+
+ render index   --> directly renders index template/view
+ redirect_to sites_path  -->  goes to index action in sites controller then it will render index template      
+
+
+ Rake Task:: rake is linux make like utility and used to write tasks in ruby.
+
+ 1.these rake  tasks present in lib/tasks/
+ 2. rake tasks file extesion is .rake
+ 3. syntax for creating rake task is
+
+  namespace :my_namespace do
+	  desc "TODO"
+	    task :my_task1 => :environment do
+	      puts "helloo world"
+	  end
+
+	  desc "TODO"
+	    task :my_task2 => :environment do
+	      puts "helloo world"
+	  end
+  end
+ 4. take tasks will be executed using following command
+
+    rake namespace:task_name
+
+
+
+Associations
+
+1.one to one associations
+   a. has_one
+   b. belongs_to
+2. one to many associations
+   a.has_many
+   b.belongs_to
+3.many to many associations
+   a. has_and_belongs_to_many
+   b. has_many :through
+ 4.polymorphic associations
+ 5.single table inheritance
+ 6.self joins

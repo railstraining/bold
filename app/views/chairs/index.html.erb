@@ -1,0 +1,28 @@
+
+<h1>chairs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>company</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chairs.each do |chair| %>
+      <tr>
+        <td><%= chair.name %></td>
+        <td><%= chair.company %></td>
+        <td><%= link_to 'Show', chair %></td>
+        <td><%= link_to 'Edit', edit_chair_path(chair) %></td>
+        <td><%= link_to 'Destroy', chair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'new chair', new_chair_path %>
